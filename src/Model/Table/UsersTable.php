@@ -37,6 +37,15 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'photo' => [
+                'fields' => [
+                    'dir' => 'photo_dir',
+                    'size' => 'size_dir',
+                    'type' => 'type_dir',
+                ],
+            ],
+        ]);
     }
 
     /**
@@ -66,14 +75,6 @@ class UsersTable extends Table
         $validator
             ->requirePresence('role', 'create')
             ->notEmpty('role');
-
-        $validator
-            ->requirePresence('photo', 'create')
-            ->notEmpty('photo');
-
-        $validator
-            ->requirePresence('dir', 'create')
-            ->notEmpty('dir');
 
         return $validator;
     }
