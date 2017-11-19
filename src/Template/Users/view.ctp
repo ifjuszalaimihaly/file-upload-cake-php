@@ -21,8 +21,8 @@
             <td><?= h($user->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Photo') ?></th>
-            <td><?= h($user->photo) ?></td>
+            <th scope="row">Photo</th>
+            <td><?= $this->Html->image($user->photo,['style' => ['width' => 'auto', 'height' => 'auto']]) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

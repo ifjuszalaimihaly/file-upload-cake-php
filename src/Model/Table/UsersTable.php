@@ -34,6 +34,14 @@ class UsersTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Xety/Cake3Upload.Upload', [
+                'fields' => [
+                    'photo' => [
+                        'path' => 'users/:id:md5',
+                    ]
+                ]
+            ]
+        );
     }
 
     /**
